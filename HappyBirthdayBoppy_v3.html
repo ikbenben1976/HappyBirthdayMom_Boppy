@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Boppy — A Little Nosh, A Lot of Love</title>
+  <style>
+    :root {
+      --bg-1: #f5f0e8;
+      --bg-2: #ebe4d8;
+      --paper: #fffdf8;
+      --paper-2: #faf6ed;
+      --ink: #2c2420;
+      --muted: #6b5f55;
+      --accent: #8b3a3a;
+      --accent-2: #c4964a;
+      --gold: #c4964a;
+      --shadow: 0 18px 45px rgba(0,0,0,0.14);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 900px at 20% 10%, rgba(139,58,58,0.08), transparent 60%),
+        radial-gradient(1000px 800px at 80% 0%, rgba(196,150,74,0.08), transparent 55%),
+        repeating-linear-gradient(135deg, var(--bg-1), var(--bg-1) 14px, var(--bg-2) 14px, var(--bg-2) 28px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 14px;
+    }
+
+    .frame {
+      width: min(980px, 100%);
+    }
+
+    .header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 auto 14px;
+      padding: 0 6px;
+    }
+
+    .header .kicker {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(44,36,32,0.70);
+    }
+
+    .header .progress {
+      font-size: 13px;
+      color: rgba(44,36,32,0.70);
+    }
+
+    .card {
+      position: relative;
+      margin: 0 auto;
+      width: 780px;
+      max-width: 100%;
+      background: linear-gradient(180deg, var(--paper), var(--paper-2));
+      height: 680px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      outline: none;
+      overflow: hidden;
+    }
+
+    /* Decorative border - menu style */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 2px solid rgba(196,150,74,0.3);
+      border-radius: 14px;
+      pointer-events: none;
+    }
+
+    .pad {
+      padding: 36px 40px;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .label {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(44,36,32,0.65);
+    }
+
+    .tag {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(196,150,74,0.35);
+      color: var(--gold);
+      background: rgba(196,150,74,0.08);
+    }
+
+    .tag.starter { border-color: rgba(139,58,58,0.35); color: var(--accent); background: rgba(139,58,58,0.08); }
+    .tag.main { border-color: rgba(44,36,32,0.25); color: var(--ink); background: rgba(44,36,32,0.06); }
+    .tag.sweet { border-color: rgba(196,150,74,0.35); color: var(--gold); background: rgba(196,150,74,0.08); }
+    .tag.special { border-color: rgba(139,58,58,0.35); color: var(--accent); background: rgba(139,58,58,0.08); }
+
+    .title {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-weight: 700;
+      font-size: clamp(26px, 3.6vw, 40px);
+      line-height: 1.15;
+      margin: 2px 0 10px;
+      color: rgba(44,36,32,0.96);
+    }
+
+    .subtitle {
+      font-size: 16px;
+      line-height: 1.5;
+      margin: 0 0 14px;
+      color: rgba(44,36,32,0.72);
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,150,74,0.4), transparent);
+      margin: 18px 0;
+    }
+
+    .section-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(44,36,32,0.62);
+      margin: 0 0 10px;
+    }
+
+    .section-title .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
+    .description {
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(44,36,32,0.78);
+      margin: 0 0 16px;
+    }
+
+    .details {
+      margin: 0 0 14px;
+      padding: 0;
+      color: rgba(44,36,32,0.78);
+      line-height: 1.55;
+      font-size: 15px;
+    }
+
+    .details li {
+      margin-bottom: 8px;
+      list-style: none;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .details li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 10px;
+      top: 3px;
+    }
+
+    .serve {
+      margin-top: 18px;
+      font-size: 13px;
+      color: rgba(44,36,32,0.65);
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .serve .stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 12px;
+      border: 1px dashed rgba(44,36,32,0.20);
+      background: rgba(255,255,255,0.45);
+    }
+
+    .serve .stamp b {
+      color: rgba(44,36,32,0.85);
+    }
+
+    .letter {
+      margin-top: 8px;
+      font-size: 16px;
+      color: rgba(44,36,32,0.78);
+      line-height: 1.7;
+    }
+    .letter p { margin: 0 0 14px; }
+    .letter .sig {
+      margin-top: 18px;
+      font-weight: 700;
+      color: rgba(44,36,32,0.88);
+    }
+
+    /* Menu Cover Styles */
+    .menu-cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .menu-cover .restaurant-name {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .menu-cover .tagline {
+      font-size: 18px;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .menu-cover .ornament {
+      font-size: 24px;
+      color: var(--gold);
+      margin: 20px 0;
+      letter-spacing: 12px;
+    }
+
+    .menu-cover .menu-sections {
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 2.2;
+    }
+
+    .menu-cover .menu-sections a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .menu-cover .menu-sections a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .menu-cover .established {
+      margin-top: 30px;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+    }
+
+    /* Section Divider Styles */
+    .section-divider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+    }
+
+    .section-divider .course-name {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-divider .course-desc {
+      font-size: 16px;
+      font-style: italic;
+      color: var(--muted);
+      max-width: 400px;
+    }
+
+    .section-divider .course-ornament {
+      font-size: 32px;
+      margin: 24px 0;
+      color: var(--gold);
+    }
+
+    .section-divider .course-count {
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .footer {
+      margin: 14px auto 0;
+      width: min(780px, 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 6px;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid rgba(44,36,32,0.16);
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(6px);
+      color: rgba(44,36,32,0.86);
+      padding: 11px 14px;
+      border-radius: 14px;
+      cursor: pointer;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.12s ease, background 0.12s ease;
+      user-select: none;
+    }
+
+    .btn:active { transform: translateY(1px); }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .dots {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 6px 0;
+      flex: 1;
+    }
+
+    .dotbtn {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(44,36,32,0.25);
+      background: rgba(255,255,255,0.55);
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .dotbtn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .dotbtn.divider-dot {
+      width: 5px;
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .animate-in { animation: slideIn 180ms ease-out; }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Small screens */
+    @media (max-width: 520px) {
+      .pad { padding: 28px 24px; }
+      .header { flex-direction: column; align-items: flex-start; }
+      .footer { flex-direction: column; }
+      .dots { order: 3; }
+      .btn { width: 100%; justify-content: center; }
+      .card { height: 640px; }
+    }
+  
+    /* Envelope intro */
+    .envelopeScreen{
+      position: fixed; inset: 0;
+      display: grid; place-items: center;
+      background: radial-gradient(1200px 600px at 50% 0%, rgba(0,0,0,0.06), transparent 60%);
+      z-index: 50;
+      padding: 22px;
+    }
+    .envelope{
+      width: min(700px, 92vw);
+      aspect-ratio: 7.25 / 5.25;
+      border-radius: 22px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(255,255,255,0.68));
+      box-shadow: 0 22px 70px rgba(0,0,0,0.20);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transform: translateY(0);
+      transition: transform 600ms ease;
+      backdrop-filter: blur(8px);
+    }
+    .env-top{
+      flex: 0 0 42%;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.00)),
+        radial-gradient(900px 260px at 50% -40px, rgba(0,0,0,0.06), transparent 60%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top;
+      transform: rotateX(0deg);
+      transition: transform 700ms ease;
+    }
+    body.opened .envelope{ transform: translateY(10px) scale(0.99); }
+
+    .env-body{
+      flex: 1 1 auto;
+      padding: 18px 22px 22px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .env-center{
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .env-stamp{
+      position: absolute;
+      top: 18px;
+      right: 22px;
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,0,0,0.16);
+      background: rgba(255,255,255,0.55);
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+    }
+    .env-address{
+      text-align: center;
+      padding: 10px 12px 6px;
+      width: min(520px, 92%);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.55);
+      border: 1px dashed rgba(0,0,0,0.18);
+    }
+    .env-address .env-kicker{
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .env-to{
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .env-from{
+      color: rgba(44,36,32,0.78);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .env-sub{
+      color: rgba(44,36,32,0.72);
+      font-size: 14px;
+    }
+
+    .openBtn{
+      align-self: center;
+      width: min(520px, 92%);
+      appearance: none; border: none;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: white;
+      font-weight: 800;
+      letter-spacing: .03em;
+      cursor: pointer;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.18);
+      margin-top: auto;
+    }
+    .openBtn:hover{ transform: translateY(-1px); }
+
+    /* Confetti canvas */
+    .confetti{
+      position: fixed; inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 200ms ease;
+      z-index: 60;
+    }
+    .confetti.show{ opacity: 1; }
+
+    /* Redeemed button */
+    .redeemBtn{
+      margin-left: auto;
+      border: 1px solid rgba(0,0,0,0.14);
+      background: rgba(255,255,255,0.6);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .redeemBtn[aria-pressed="true"]{
+      border-color: rgba(0,0,0,0.22);
+      background: rgba(0,0,0,0.06);
+    }
+</style>
+</head>
+<body>
+  
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+  <div id="envelopeScreen" class="envelopeScreen" role="dialog" aria-label="Birthday card envelope">
+    <div class="envelope" aria-hidden="false">
+      <div class="env-top"></div>
+      <div class="env-body">
+        <div class="env-stamp" aria-hidden="true">🎂</div>
+        <div class="env-center">
+        <div class="env-address">
+          <div class="env-kicker">To</div>
+          <div class="env-to"><strong>Mom</strong> (Boppy)</div>
+          <div class="env-from">From Ben, Karen &amp; Liliana</div>
+          <div class="env-sub">A special menu, just for you</div>
+        </div>
+      </div>
+        <button id="openEnvelopeBtn" class="openBtn">Open</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="app">
+    <div class="frame" role="application" aria-label="Boppy birthday menu cards">
+      <div class="header">
+        <div class="kicker" id="kicker">A Little Nosh, A Lot of Love</div>
+        <div class="progress" id="progress"></div>
+      </div>
+
+      <div class="card" id="card">
+        <div class="pad" id="content"></div>
+      </div>
+
+      <div class="footer">
+        <button class="btn" id="prevBtn" aria-label="Previous">
+          <span>⟵</span><span>Back</span>
+        </button>
+
+        <div class="dots" id="dots" aria-label="Navigation dots"></div>
+
+        <button class="btn" id="nextBtn" aria-label="Next">
+          <span>Next</span><span>⟶</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const slides = [
+      // Birthday intro
+      {
+        type: "birthday",
+        title: "Happy Birthday, Mom (Boppy)! 🎂",
+        subtitle: "Welcome to your 80th year...",
+        body: [
+          "For your birthday this year, we are giving you what you always ask for — time together, good food (and the greatest of company!).",
+          "We have made you a menu, to the theme of 'A Little Nosh, A Lot of Love.' That is twelve reservations for your 80th year of life, each one redeemable whenever you want.",
+          "With only one exception, no cooking required (unless you want more). No cleanup. Just show up hungry, for the food and our company."
+        ],
+        signoff: "With all our love, Ben, Karen & Liliana"
+      },
+      // Menu cover
+      {
+        type: "cover"
+      },
+      // Starters divider
+      {
+        type: "divider",
+        course: "Starters",
+        description: "A little something to begin",
+        count: "2 selections"
+      },
+      // Starter 1
+      {
+        type: "item",
+        course: "starter",
+        number: 1,
+        title: "Afternoon Tea",
+        description: "Fancy finger sandwiches, scones, and a proper pot of tea. Pinkies optional.",
+        details: [
+          "A tearoom of your choice",
+          "Or we host at home with the full setup",
+          "Dress code: whatever makes you feel elegant"
+        ],
+        serves: "Table for 4"
+      },
+      // Starter 2
+      {
+        type: "item",
+        course: "starter",
+        number: 2,
+        title: "Movie Night + Snacks",
+        description: "You pick the film. We bring the nosh. Phones stay silent.",
+        details: [
+          "Your movie, your couch (or ours)",
+          "We handle all the snacks",
+          "Blankets mandatory, commentary welcome"
+        ],
+        serves: "Table for 4"
+      },
+      // Mains divider
+      {
+        type: "divider",
+        course: "Mains",
+        description: "The heart of the menu",
+        count: "5 selections"
+      },
+      // Main 1
+      {
+        type: "item",
+        course: "main",
+        number: 3,
+        title: "Lunch Date with Liliana",
+        description: "Just the two of you. Her favorite spot or yours. Our treat.",
+        details: [
+          "Grandma + granddaughter time",
+          "You two decide where",
+          "Take your time — no rush"
+        ],
+        serves: "Table for 2"
+      },
+      // Main 2
+      {
+        type: "item",
+        course: "main",
+        number: 4,
+        title: "Brunch at Your Favorite Spot",
+        description: "A slow morning at the place you love. We're buying.",
+        details: [
+          "You pick the restaurant",
+          "Sleep in, show up hungry",
+          "Extra coffee, extra everything"
+        ],
+        serves: "Table for 4"
+      },
+      // Main 3
+      {
+        type: "item",
+        course: "main",
+        number: 5,
+        title: "Breakfast in Bed",
+        description: "We come to you. Full breakfast, your kitchen, you don't lift a finger.",
+        details: [
+          "We shop, we cook, we serve",
+          "Request anything — we'll figure it out",
+          "You stay comfortable the whole time"
+        ],
+        serves: "Table for 4"
+      },
+      // Main 4
+      {
+        type: "item",
+        course: "main",
+        number: 6,
+        title: "Dinner Somewhere New",
+        description: "That restaurant you've been curious about. Let's finally try it.",
+        details: [
+          "You name the place (or we surprise you)",
+          "Reservations handled",
+          "Appetizers encouraged"
+        ],
+        serves: "Table for 4"
+      },
+      // Main 5
+      {
+        type: "item",
+        course: "main",
+        number: 7,
+        title: "Friday Night Dinner",
+        description: "We host. You show up. The way it should be.",
+        details: [
+          "Dinner at our place",
+          "We handle everything",
+          "You just bring yourself"
+        ],
+        serves: "Table for 4"
+      },
+      // Sweets divider
+      {
+        type: "divider",
+        course: "Sweets",
+        description: "A little something sweet",
+        count: "3 selections"
+      },
+      // Sweet 1
+      {
+        type: "item",
+        course: "sweet",
+        number: 8,
+        title: "Dessert Date",
+        description: "Skip dinner, go straight to the good stuff. No judgment here.",
+        details: [
+          "A bakery, café, or dessert bar",
+          "Multiple desserts encouraged",
+          "Sharing optional"
+        ],
+        serves: "Table for 4"
+      },
+      // Sweet 2
+      {
+        type: "item",
+        course: "sweet",
+        number: 9,
+        title: "Baking Day with Liliana",
+        description: "Grandma teaches, Liliana learns. Flour everywhere.",
+        details: [
+          "Cookies, challah, or your specialty",
+          "Liliana is your sous chef",
+          "We handle cleanup"
+        ],
+        serves: "Grandma + Liliana"
+      },
+      // Sweet 3
+      {
+        type: "item",
+        course: "sweet",
+        number: 10,
+        title: "Ice Cream Outing",
+        description: "Liliana picks the spot. You get the first taste. Sprinkles encouraged.",
+        details: [
+          "Grandma gets first pick of flavors",
+          "Liliana is the official taste consultant",
+          "Cones, cups, or sundaes — your call"
+        ],
+        serves: "Grandma + Liliana"
+      },
+      // Chef's Specials divider
+      {
+        type: "divider",
+        course: "Chef's Specials",
+        description: "Off the menu, from the heart",
+        count: "2 selections"
+      },
+      // Special 1
+      {
+        type: "item",
+        course: "special",
+        number: 11,
+        title: "Teach Us Your Recipe",
+        description: "That dish only you make right. Pass it down, we'll take notes.",
+        details: [
+          "You pick the dish",
+          "We bring ingredients and attention",
+          "We write it down so it lives forever"
+        ],
+        serves: "Table for 4"
+      },
+      // Special 2
+      {
+        type: "item",
+        course: "special",
+        number: 12,
+        title: "Game Night + Appetizers",
+        description: "Your choice of game. We bring the food. Competitive spirits welcome.",
+        details: [
+          "Cards, board games, or your favorite",
+          "Plenty of snacks",
+          "Bragging rights included"
+        ],
+        serves: "Table for 4"
+      }
+    ];
+
+    const STORAGE_PREFIX = 'boppy_menu_redeemed_';
+    function menuKey(n){ return STORAGE_PREFIX + String(n).padStart(2,'0'); }
+    function isRedeemed(n){
+      try { return localStorage.getItem(menuKey(n)) === '1'; } catch(e){ return false; }
+    }
+    function setRedeemed(n, val){
+      try { localStorage.setItem(menuKey(n), val ? '1' : '0'); } catch(e){}
+    }
+
+    let idx = 0;
+
+    const contentEl = document.getElementById('content');
+    const progressEl = document.getElementById('progress');
+    const dotsEl = document.getElementById('dots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function totalItems() {
+      return slides.filter(s => s.type === 'item').length;
+    }
+
+    function setProgress() {
+      const s = slides[idx];
+      if (s.type === 'item') {
+        progressEl.textContent = `Item ${String(s.number).padStart(2,'0')} / ${String(totalItems()).padStart(2,'0')}`;
+      } else {
+        progressEl.textContent = '';
+      }
+    }
+
+    function renderDots() {
+      dotsEl.innerHTML = '';
+      for (let i = 0; i < slides.length; i++) {
+        const b = document.createElement('button');
+        const isDivider = slides[i].type === 'divider';
+        b.className = 'dotbtn' + (i === idx ? ' active' : '') + (isDivider ? ' divider-dot' : '');
+        b.setAttribute('aria-label', `Go to page ${i+1}`);
+        b.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(b);
+      }
+    }
+
+    function birthdayHTML(s) {
+      return `
+        <div class="topbar">
+          <div class="label">Birthday Message</div>
+          <div class="tag">With Love</div>
+        </div>
+
+        <div class="title">${s.title}</div>
+        ${s.subtitle ? `<div class="subtitle">${s.subtitle}</div>` : ''}
+
+        <div class="divider"></div>
+
+        <div class="letter">
+          ${(s.body || []).map(p => `<p>${p}</p>`).join('')}
+          ${s.signoff ? `<p class="sig">${s.signoff}</p>` : ''}
+        </div>
+      `;
+    }
+
+    function coverHTML() {
+      return `
+        <div class="menu-cover">
+          <div class="ornament">✦ ✦ ✦</div>
+          <div class="restaurant-name">A Little Nosh,<br>A Lot of Love</div>
+          <div class="tagline">A Tasting Menu for Your 80th Year</div>
+          <div class="ornament">❧</div>
+          <div class="menu-sections">
+            <a href="#" onclick="goTo(2); return false;">Starters</a> · 
+            <a href="#" onclick="goTo(5); return false;">Mains</a> · 
+            <a href="#" onclick="goTo(11); return false;">Sweets</a> · 
+            <a href="#" onclick="goTo(15); return false;">Chef's Specials</a>
+          </div>
+          <div class="established">Est. 1947 · Serving Family Since Day One</div>
+        </div>
+      `;
+    }
+
+    function dividerHTML(s) {
+      return `
+        <div class="section-divider">
+          <div class="course-ornament">✦</div>
+          <div class="course-name">${s.course}</div>
+          <div class="course-desc">${s.description}</div>
+          <div class="course-count">${s.count}</div>
+          <div class="course-ornament">✦</div>
+        </div>
+      `;
+    }
+
+    function itemHTML(s) {
+      const redeemed = isRedeemed(s.number);
+      const redeemedBtn = `<button class="redeemBtn" data-item="${s.number}" aria-pressed="${redeemed ? 'true' : 'false'}">${redeemed ? 'Redeemed ✓' : 'Mark Redeemed'}</button>`;
+
+      return `
+        <div class="topbar">
+          <div class="label">Menu Item ${String(s.number).padStart(2,'0')}</div>
+          <div class="tag ${s.course}">${s.course}</div>
+        </div>
+
+        <div class="title">${s.title}</div>
+        <div class="description">${s.description}</div>
+
+        <div class="divider"></div>
+
+        <div class="section-title"><span class="dot"></span>Details</div>
+        <ul class="details">${(s.details || []).map(x => `<li>${x}</li>`).join('')}</ul>
+
+        <div class="serve">
+          <span class="stamp"><b>${s.serves}</b></span>
+          <span class="stamp"><b>Redeem:</b> Anytime</span>
+          ${redeemedBtn}
+        </div>
+      `;
+    }
+
+    function render() {
+      const s = slides[idx];
+      contentEl.classList.remove('animate-in');
+      void contentEl.offsetWidth;
+      contentEl.classList.add('animate-in');
+
+      if (s.type === 'birthday') {
+        contentEl.innerHTML = birthdayHTML(s);
+      } else if (s.type === 'cover') {
+        contentEl.innerHTML = coverHTML();
+      } else if (s.type === 'divider') {
+        contentEl.innerHTML = dividerHTML(s);
+      } else {
+        contentEl.innerHTML = itemHTML(s);
+      }
+
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === slides.length - 1;
+
+      setProgress();
+      renderDots();
+    }
+
+    function goTo(i) {
+      idx = Math.max(0, Math.min(slides.length - 1, i));
+      render();
+    }
+
+    // Redeem toggle
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.redeemBtn');
+      if (!btn) return;
+      const n = parseInt(btn.getAttribute('data-item') || '', 10);
+      if (!Number.isFinite(n) || n <= 0) return;
+
+      const next = btn.getAttribute('aria-pressed') !== 'true';
+      setRedeemed(n, next);
+      btn.setAttribute('aria-pressed', next ? 'true' : 'false');
+      btn.textContent = next ? 'Redeemed ✓' : 'Mark Redeemed';
+    });
+
+    prevBtn.addEventListener('click', () => goTo(idx - 1));
+    nextBtn.addEventListener('click', () => goTo(idx + 1));
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') goTo(idx - 1);
+      if (e.key === 'ArrowRight') goTo(idx + 1);
+    });
+
+    function initApp() {
+      render();
+      try { document.querySelector('.card')?.focus?.(); } catch(e){}
+    }
+
+    const envelopeScreen = document.getElementById('envelopeScreen');
+    const openBtn = document.getElementById('openEnvelopeBtn');
+    const confettiCanvas = document.getElementById('confetti');
+    const appEl = document.getElementById('app');
+
+    function runConfetti(durationMs = 1400) {
+      if (!confettiCanvas) return;
+      const ctx = confettiCanvas.getContext('2d');
+      const DPR = window.devicePixelRatio || 1;
+      const w = confettiCanvas.width = Math.floor(window.innerWidth * DPR);
+      const h = confettiCanvas.height = Math.floor(window.innerHeight * DPR);
+      confettiCanvas.style.width = window.innerWidth + 'px';
+      confettiCanvas.style.height = window.innerHeight + 'px';
+      ctx.scale(DPR, DPR);
+
+      const pieces = Array.from({length: 160}, () => ({
+        x: Math.random()*window.innerWidth,
+        y: -20 - Math.random()*window.innerHeight*0.2,
+        r: 2 + Math.random()*4,
+        vx: -1.5 + Math.random()*3,
+        vy: 2 + Math.random()*5,
+        rot: Math.random()*Math.PI,
+        vr: -0.12 + Math.random()*0.24,
+        h: Math.floor(Math.random()*360)
+      }));
+
+      const start = performance.now();
+      function tick(t) {
+        const elapsed = t - start;
+        ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+        ctx.save();
+        for (const p of pieces) {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.rot += p.vr;
+          p.vy += 0.03;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot);
+          ctx.fillStyle = `hsl(${p.h}, 70%, 60%)`;
+          ctx.fillRect(-p.r, -p.r, p.r*2.2, p.r*1.4);
+          ctx.restore();
+        }
+        ctx.restore();
+        if (elapsed < durationMs) {
+          requestAnimationFrame(tick);
+        } else {
+          ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
+          confettiCanvas.classList.remove('show');
+        }
+      }
+      confettiCanvas.classList.add('show');
+      requestAnimationFrame(tick);
+    }
+
+    if (appEl) appEl.style.display = 'none';
+
+    if (openBtn) {
+      openBtn.addEventListener('click', () => {
+        document.body.classList.add('opened');
+        runConfetti(1400);
+        setTimeout(() => {
+          if (envelopeScreen) envelopeScreen.style.display = 'none';
+          if (appEl) appEl.style.display = '';
+          initApp();
+        }, 900);
+      });
+    }
+
+</script>
+</body>
+</html>
